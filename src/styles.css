@@ -3,7 +3,7 @@
 .margin-top-20 { margin-top: 20px; }
 .margin-bottom-20 { margin-bottom: 20px; }
 .pointer-red { cursor: pointer; color: red; }
-
+.error-txt { margin: 2px; color: red; }
 @media only screen and (max-width: 600px) {
     .row {
         margin-left: 0 !important;

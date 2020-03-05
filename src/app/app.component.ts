@@ -7,38 +7,40 @@ declare var $: any;
 })
 export class AppComponent {
   title = 'employee-onboarding';
-  // employees: any[] = [];
   employees: Map<string, any>;
   constructor() {
     this.employees = new Map();
   }
 
   ngOnInit() {
-    let emps = [];
+    // To get the data from the session storage
+    /* let emps = [];
     if (sessionStorage.getItem('emps')) {
       emps = JSON.parse(sessionStorage.getItem('emps'));
       for (const emp of emps) {
         this.employees.set(emp.empId, emp);
       }
-    }
+    } */
   }
 
+  // Get the array of values from the map
   getValues() {
     return Array.from(this.employees.values());
   }
 
+  // Handler for employee add event
   hadleEvent(event) {
     $('#modalClose').click();
-    console.log(event);
     this.employees.set(event.empId, event);
   }
 
+  // Delete Employee
   deleteEmp(data: any) {
-    console.log(data.empId);
     this.employees.delete(data.empId);
   }
 
-  saveData() {
+  // Method to save data in sessionstorage so as to make the data persistent after refresh/reload
+  /* saveData() {
     sessionStorage.setItem('emps', JSON.stringify(this.employees));
-  }
+  } */
 }

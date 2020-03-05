@@ -1,26 +1,31 @@
 <div class="container">
   <form [formGroup]="employeeForm" (ngSubmit)="submitForm()" class="form">
     <div class="form-group">
-      <label for="name">Name: </label>
-      <input type="text" class="form-control" id="name" formControlName="name">
+      <label for="name" id="name">Name: </label>
+      <input type="text" class="form-control" id="nameEl" formControlName="name">
+      <app-error-message id="nameError" [control]="employeeForm.controls.name"></app-error-message>
     </div>
     <div class="form-group">
-      <label for="empId">Employee Id: </label>
-      <input type="text" class="form-control" id="empId" formControlName="empId">
+      <label for="empId" id="empId">Employee Id: </label>
+      <input type="text" class="form-control" id="empIdEl" formControlName="empId">
+      <app-error-message id="empIdError" [control]="employeeForm.controls.empId"></app-error-message>
     </div>
     <div class="form-group">
-      <label for="dept">Department: </label>
-      <select class="form-control" id="dept" formControlName="dept">
+      <label for="dept" id="dept">Department: </label>
+      <select class="form-control" id="deptEl" formControlName="dept">
         <option *ngFor="let item of items" value="{{item}}">{{ item }}</option>
       </select>
+      <app-error-message id="deptError" [control]="employeeForm.controls.dept"></app-error-message>
     </div>
     <div class="form-group">
-      <label for="email">Email: </label>
-      <input type="email" class="form-control" id="email" formControlName="email">
+      <label for="email" id="email">Email: </label>
+      <input type="email" class="form-control" id="emailEl" formControlName="email">
+      <app-error-message id="emailError" [control]="employeeForm.controls.email"></app-error-message>
     </div>
     <div class="form-group">
-      <label for="doj">Date of Joining: </label>
-      <input type="date" class="form-control" id="doj" formControlName="doj">
+      <label for="doj" id="doj">Date of Joining: </label>
+      <input type="date" class="form-control" id="dojEl" formControlName="doj">
+      <app-error-message id="dojError" [control]="employeeForm.controls.doj"></app-error-message>
     </div>
     <div class="full-width">
       <button type="reset" class="btn btn-secondary float-left">Clear</button>

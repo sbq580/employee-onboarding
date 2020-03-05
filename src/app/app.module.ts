@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NewEmployeeComponent } from './components/new-employee/new-employee.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ErrorMessageModule } from './shared/modules/error-message/error-message.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HeaderComponent } from './components/header/header.component';
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ErrorMessageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

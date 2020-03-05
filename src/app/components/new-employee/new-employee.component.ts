@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { NameValidator, EmailValidator } from 'src/app/shared/validators/custom-validators';
 
 @Component({
   selector: 'app-new-employee',
@@ -12,10 +13,10 @@ export class NewEmployeeComponent implements OnInit {
   items: any[];
   constructor(private fb: FormBuilder) {
     this.employeeForm = this.fb.group({
-      name: ['', Validators.required],
+      name: ['', [Validators.required, NameValidator]],
       empId: ['', Validators.required],
       dept: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, EmailValidator]],
       doj: ['', Validators.required],
     });
   }
