@@ -1,0 +1,3 @@
+.fixed-height{ overflow-y: auto; height: 350px; }
+.fixed-height thead th{ position: sticky; top: 0; background-color: #FFF; border-top: none;}
+.container { margin-top: 20px; }

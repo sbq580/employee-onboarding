@@ -1,20 +1,63 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+    <div class="full-width">
+      <button type="button" class="btn btn-primary float-right margin-top-20 margin-bottom-20" data-toggle="modal" data-target="#exampleModal">
+        <i class="fas fa-plus"></i>&nbsp;
+        New Employee
+      </button>
+    </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+
+<!-- Table Code -->
+<div class="container">
+  <div class="row fixed-height">
+    <table class="table" *ngIf="employees && employees.size">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">EmployeeID</th>
+          <th scope="col">Department</th>
+          <th scope="col">Email Id</th>
+          <th scope="col">DOJ</th>
+          <th scopr="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let emp of getValues()">
+          <td>{{emp.name}}</td>
+          <td>{{emp.empId}}</td>
+          <td>{{emp.dept}}</td>
+          <td>{{emp.email}}</td>
+          <td>{{emp.doj}}</td>
+          <td><i class="fas fa-minus-circle pointer-red text-center" (click)="deleteEmp(emp)"></i></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="full-width" *ngIf="employees && employees.size">
+    <button type="button" class="btn btn-primary float-right margin-top-20 margin-bottom-20" (click)="saveData()">
+      Save
+    </button>
+  </div>
+</div>
+
+<!-- Modal Code -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title justify-content-center">Add New Employee</h5>
+        <button type="button" id="modalClose" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-new-employee (messageEvent)="hadleEvent($event)"></app-new-employee>
+      </div>
+    </div>
+  </div>
+</div>
+
 
