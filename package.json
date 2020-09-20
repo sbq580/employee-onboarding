@@ -19,7 +19,7 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
-    "@types/jquery": "^3.3.33",
+    "@types/jquery": "^3.5.1",
     "bootstrap": "^4.4.1",
     "core-js": "^2.5.4",
     "jquery": "^3.4.1",
